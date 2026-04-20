@@ -1,8 +1,6 @@
 // Массив корзины
 let cart = [];
 
-// ========== ФУНКЦИИ ДЛЯ LOCALSTORAGE ==========
-
 // Сохранение корзины в localStorage
 function saveCartToLocalStorage() {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -19,9 +17,7 @@ function loadCartFromLocalStorage() {
     showCart();
 }
 
-// ========== ОСНОВНЫЕ ФУНКЦИИ ==========
-
-// Функция подсчета суммы (стрелочная)
+// Функция подсчета суммы
 const calculateTotal = () => {
     let sum = 0;
     for (let i = 0; i < cart.length; i++) {
@@ -59,7 +55,7 @@ function showCart() {
 function addToCart(name, price) {
     cart.push({ name: name, price: price });
     showCart();
-    saveCartToLocalStorage();  // ← ДОБАВЛЕНО
+    saveCartToLocalStorage();
     alert(name + ' добавлен в корзину!');
 }
 
@@ -68,7 +64,7 @@ function removeFromCart(index) {
     let removed = cart[index].name;
     cart.splice(index, 1);
     showCart();
-    saveCartToLocalStorage();  // ← ДОБАВЛЕНО
+    saveCartToLocalStorage();
     alert(removed + ' удален из корзины');
 }
 
@@ -80,7 +76,7 @@ function clearCart() {
     }
     cart = [];
     showCart();
-    saveCartToLocalStorage();  // ← ДОБАВЛЕНО
+    saveCartToLocalStorage();
     alert('Корзина очищена');
 }
 
@@ -93,7 +89,7 @@ function checkout() {
     alert('Оплата прошла успешно! Сумма: ' + calculateTotal() + ' ₽. Спасибо за покупку!');
     cart = [];
     showCart();
-    saveCartToLocalStorage();  // ← ДОБАВЛЕНО
+    saveCartToLocalStorage();
 }
 
 // Фильтр товаров
@@ -118,7 +114,7 @@ function initFilter() {
 
 // Запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
-    loadCartFromLocalStorage();  // ← ДОБАВЛЕНО (ПЕРВОЙ СТРОКОЙ)
+    loadCartFromLocalStorage();
     showCart();
     initFilter();
     
@@ -132,7 +128,6 @@ document.addEventListener('DOMContentLoaded', function() {
         payBtn.addEventListener('click', checkout);
     }
     
-    // Кнопки "В корзину" на странице каталога
     let addButtons = document.querySelectorAll('.add-btn');
     for (let i = 0; i < addButtons.length; i++) {
         addButtons[i].addEventListener('click', function() {
