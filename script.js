@@ -1,6 +1,26 @@
 // Массив корзины
 let cart = [];
 
+// ========== ФУНКЦИИ ДЛЯ LOCALSTORAGE ==========
+
+// Сохранение корзины в localStorage
+function saveCartToLocalStorage() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Загрузка корзины из localStorage
+function loadCartFromLocalStorage() {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+        cart = JSON.parse(savedCart);
+    } else {
+        cart = [];
+    }
+    showCart();
+}
+
+// ========== ОСНОВНЫЕ ФУНКЦИИ ==========
+
 // Функция подсчета суммы (стрелочная)
 const calculateTotal = () => {
     let sum = 0;
@@ -39,6 +59,7 @@ function showCart() {
 function addToCart(name, price) {
     cart.push({ name: name, price: price });
     showCart();
+    saveCartToLocalStorage();  // ← ДОБАВЛЕНО
     alert(name + ' добавлен в корзину!');
 }
 
@@ -47,6 +68,7 @@ function removeFromCart(index) {
     let removed = cart[index].name;
     cart.splice(index, 1);
     showCart();
+    saveCartToLocalStorage();  // ← ДОБАВЛЕНО
     alert(removed + ' удален из корзины');
 }
 
@@ -58,6 +80,7 @@ function clearCart() {
     }
     cart = [];
     showCart();
+    saveCartToLocalStorage();  // ← ДОБАВЛЕНО
     alert('Корзина очищена');
 }
 
@@ -70,6 +93,7 @@ function checkout() {
     alert('Оплата прошла успешно! Сумма: ' + calculateTotal() + ' ₽. Спасибо за покупку!');
     cart = [];
     showCart();
+    saveCartToLocalStorage();  // ← ДОБАВЛЕНО
 }
 
 // Фильтр товаров
@@ -94,6 +118,7 @@ function initFilter() {
 
 // Запуск при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
+    loadCartFromLocalStorage();  // ← ДОБАВЛЕНО (ПЕРВОЙ СТРОКОЙ)
     showCart();
     initFilter();
     
