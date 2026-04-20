@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог кофе</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+    </ul>
+</nav>
+
+<hr>
+
+<h1>Каталог кофе</h1>
+
+<!-- Фильтр -->
+<div class="filter">
+    <strong>Фильтр:</strong>
+    <select id="filter">
+        <option value="all">Все сорта</option>
+        <option value="arabica">Арабика</option>
+        <option value="robusta">Робуста</option>
+        <option value="liberica">Либерика</option>
+    </select>
+</div>
+
+<!-- Товары -->
+<div class="catalog">
+    <div class="product" data-category="arabica">
+        <h3>Арабика</h3>
+        <img src="images/arabica.jpg" alt="Арабика">
+        <p>Эфиопия, регион Сидамо</p>
+        <p>Вкус: Цитрус, черника, шоколад</p>
+        <p class="price">850 ₽</p>
+        <a href="arabica.html">Подробнее</a>
+        <button class="add-btn" data-name="Арабика" data-price="850">В корзину</button>
+    </div>
+    
+    <div class="product" data-category="robusta">
+        <h3>Робуста</h3>
+        <img src="images/robusta.jpg" alt="Робуста">
+        <p>Вьетнам, плато Даклак</p>
+        <p>Вкус: Шоколад, орехи, древесные нотки</p>
+        <p class="price">650 ₽</p>
+        <a href="robusta.html">Подробнее</a>
+        <button class="add-btn" data-name="Робуста" data-price="650">В корзину</button>
+    </div>
+    
+    <div class="product" data-category="liberica">
+        <h3>Либерика</h3>
+        <img src="images/liberica.jpg" alt="Либерика">
+        <p>Филиппины, провинция Батангас</p>
+        <p>Вкус: Дымок, тропические фрукты, жасмин</p>
+        <p class="price">1200 ₽</p>
+        <a href="liberica.html">Подробнее</a>
+        <button class="add-btn" data-name="Либерика" data-price="1200">В корзину</button>
+    </div>
+</div>
+
+<hr>
+
+<!-- Корзина -->
+<h2>Корзина</h2>
+<div id="cart-block">
+    <div id="cart-list"></div>
+    <div id="total-price">Итого: 0 ₽</div>
+    <button id="clear-cart">Очистить корзину</button>
+    <button id="pay-btn">Оплатить</button>
+</div>
+
+<footer>
+    <p>&copy; 2025 Кофейная лавка</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
