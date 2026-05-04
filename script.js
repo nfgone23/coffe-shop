@@ -92,6 +92,24 @@ function checkout() {
     saveCartToLocalStorage();
 }
 
+// Функция для проверки авторизации
+function checkAuth(callback) {
+    fetch('/api/v1/index.php/check')
+        .then(function(res) {
+            return res.json();
+        })
+        .catch(function() {
+            return { auth: false };
+        })
+        .then(function(data) {
+            if (data.auth === true) {
+                callback(true);
+            } else {
+                callback(false);
+            }
+        });
+}
+
 // Фильтр товаров
 function initFilter() {
     let filterSelect = document.getElementById('filter');
@@ -128,12 +146,21 @@ document.addEventListener('DOMContentLoaded', function() {
         payBtn.addEventListener('click', checkout);
     }
     
+    // Кнопки "В корзину" с проверкой авторизации
     let addButtons = document.querySelectorAll('.add-btn');
     for (let i = 0; i < addButtons.length; i++) {
         addButtons[i].addEventListener('click', function() {
             let name = this.getAttribute('data-name');
             let price = parseInt(this.getAttribute('data-price'));
-            addToCart(name, price);
+            
+            checkAuth(function(isAuth) {
+                if (isAuth) {
+                    addToCart(name, price);
+                } else {
+                    alert('Требуется авторизация!');
+                    window.location.href = 'login.php';
+                }
+            });
         });
     }
 });
