@@ -1,0 +1,31 @@
+.users-section {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #e8d5b7;
+}
+
+.users-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.users-section h2 {
+  text-align: center;
+  color: #5c3a21;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 30px;
+  background-color: #fff8f0;
+  border-radius: 12px;
+  color: #5c3a21;
+}
+
+.error {
+  color: #c62828;
+}

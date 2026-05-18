@@ -227,11 +227,6 @@ small {
     font-size: 14px;
 }
 
-/* Скрытие товаров при фильтрации */
-.product.hidden {
-    display: none;
-}
-
 /* ===== СТИЛИ ДЛЯ ФИЛЬТРА ===== */
 .filter {
     background-color: rgb(255, 248, 240);
@@ -279,6 +274,23 @@ small {
 }
 
 .add-btn:hover {
+    background-color: rgb(27, 94, 32);
+}
+
+/* Стиль для кнопки "Войти" на странице login.php */
+.login-btn {
+    background-color: rgb(46, 125, 50);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.login-btn:hover {
     background-color: rgb(27, 94, 32);
 }
 
@@ -354,55 +366,38 @@ small {
     background-color: rgb(101, 67, 33);
 }
 
-/* ===== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ===== */
-@media (max-width: 768px) {
-    body {
-        padding: 10px;
-    }
-    
-    nav ul {
-        justify-content: center;
-        padding: 12px 20px;
-    }
-    
-    nav ul li a {
-        font-size: 16px;
-    }
-    
-    .catalog {
-        justify-content: center;
-        gap: 20px;
-    }
-    
-    .product {
-        width: 260px;
-    }
-    
-    .product img {
-        width: 220px;
-        height: 300px;
-    }
-    
-    .cart-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 8px;
-    }
-    
-    .cart-item span:nth-child(2) {
-        margin: 5px 0;
-    }
-    
-    .filter {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    h1 {
-        font-size: 28px;
-    }
-    
-    h2 {
-        font-size: 20px;
-    }
+/* ===== ФОРМА ВХОДА ===== */
+.login-form {
+    background-color: rgb(255, 248, 240);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 350px;
+    margin: 20px 0;
 }
+
+.login-form input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 25px;
+    border: 1px solid rgb(205, 170, 140);
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.login-form button {
+    background-color: rgb(46, 125, 50);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.login-form button:hover {
+    background-color: rgb(27, 94, 32);
+}
+
