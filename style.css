@@ -192,7 +192,6 @@ small {
     box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
 }
 
-/* Увеличенные размеры для картинок */
 .product img {
     width: 240px;
     height: 320px;
